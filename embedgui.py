@@ -2,7 +2,8 @@
 from tkinter import *
 from tkinter import messagebox, colorchooser, ttk
 from discord_webhook import DiscordWebhook, DiscordEmbed
-import time, webbrowser
+import time, configparser
+
 
 
 
@@ -49,11 +50,20 @@ def choose_color():
 	color_ph.insert(0, choosen_color[1].lstrip('#'))
 	color_ph.configure(bg=choosen_color[1])
 
+def save_wh_info():
+	config['WebHook']['wh_URL'] = wh_url_ph.get()
+	config['WebHook']['wh_username'] = wh_username_ph.get()
+	config['WebHook']['wh_avatar_URL'] = wh_avatar_ph.get()
+	
+
+	with open('data.ini', 'w') as cfg:
+		config.write(cfg)
+
 
 
 # Window
 window = Tk()
-window.title("Webhook Embed Sender v0.2.1")
+window.title("Webhook Embed Sender v0.2.2")
 window.geometry('500x300')
 
 tab_control = ttk.Notebook(window)
@@ -67,7 +77,7 @@ tab_control.add(tab3, text='Embed')
 
 
 # Info menu
-main_txt = Label(tab1, text="Webhook Embed Sender v0.2.1", font=("Calibri", 25))
+main_txt = Label(tab1, text="Webhook Embed Sender v0.2.2", font=("Calibri", 25))
 main_txt.grid(column=0, row=0)
 author_txt = Label(tab1, text="by FrachlitzStudio", font=("Calibri", 20))
 author_txt.grid(column=0, row=1)
@@ -92,6 +102,18 @@ wh_avatar_text = Label(tab2, text="Webhook Avatar:", font=("Arial", 14))
 wh_avatar_text.grid(column=0, row=3)
 wh_avatar_ph = Entry(tab2, width=50)
 wh_avatar_ph.grid(column=1, row=3)
+
+
+send_btn = Button(tab2, text="Save", command=save_wh_info, width=32)
+send_btn.grid(column=1, row=10)
+
+
+config = configparser.ConfigParser()
+config.read("data.ini")
+
+wh_url_ph.insert(0, config['WebHook']['wh_URL'])
+wh_username_ph.insert(0, config['WebHook']['wh_username'])
+wh_avatar_ph.insert(0, config['WebHook']['wh_avatar_url'])
 
 
 
@@ -137,8 +159,6 @@ timestamp_ph = Checkbutton(tab3, text="True", var=chk_state)
 timestamp_ph.grid(column=1, row=7)
 
 
-
-# Send btn
 send_btn = Button(tab3, text="Send!", fg="green", command=send_click, width=16)
 send_btn.grid(column=1, row=10)
 
