@@ -28,11 +28,15 @@ def send_click():
 		e_color = int(color_ph.get(), 16)
 	else:
 		e_color = 0x000000
+	e_image = image_ph.get()
+	e_thumbnail = thumbnail_ph.get()
 	e_author = author_ph.get()
 	e_author_icon = author_icon_ph.get()
 	e_footer = footer_ph.get()
 
 	embed = DiscordEmbed(title=e_title, description=e_desc, color=e_color)
+	embed.set_image(url=e_image)
+	embed.set_thumbnail(url=e_thumbnail)
 	embed.set_author(name=e_author, icon_url=e_author_icon)
 	embed.set_footer(text=e_footer)
 	if chk_state.get() == True:
@@ -63,8 +67,8 @@ def save_wh_info():
 
 # Window
 window = Tk()
-window.title("Webhook Embed Sender v0.2.2")
-window.geometry('500x300')
+window.title("Webhook Embed Sender v0.3")
+window.geometry('500x350')
 
 tab_control = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_control)
@@ -77,7 +81,7 @@ tab_control.add(tab3, text='Embed')
 
 
 # Info menu
-main_txt = Label(tab1, text="Webhook Embed Sender v0.2.2", font=("Calibri", 25))
+main_txt = Label(tab1, text="Webhook Embed Sender v0.3", font=("Calibri", 25))
 main_txt.grid(column=0, row=0)
 author_txt = Label(tab1, text="by FrachlitzStudio", font=("Calibri", 20))
 author_txt.grid(column=0, row=1)
@@ -146,17 +150,27 @@ author_icon_text.grid(column=0, row=5)
 author_icon_ph = Entry(tab3, width=50)
 author_icon_ph.grid(column=1, row=5)
 
+image_text = Label(tab3, text="Image URL:", font=("Arial", 14))
+image_text.grid(column=0, row=6)
+image_ph = Entry(tab3, width=50)
+image_ph.grid(column=1, row=6)
+
+thumbnail_text = Label(tab3, text="Thumnail URL:", font=("Arial", 14))
+thumbnail_text.grid(column=0, row=7)
+thumbnail_ph = Entry(tab3, width=50)
+thumbnail_ph.grid(column=1, row=7)
+
 footer_text = Label(tab3, text="Footer:", font=("Arial", 14))
-footer_text.grid(column=0, row=6)
+footer_text.grid(column=0, row=8)
 footer_ph = Entry(tab3, width=50)
-footer_ph.grid(column=1, row=6)
+footer_ph.grid(column=1, row=8)
 
 timestamp_text = Label(tab3, text="Timestamp:", font=("Arial", 14))
-timestamp_text.grid(column=0, row=7)
+timestamp_text.grid(column=0, row=9)
 chk_state = BooleanVar()
 chk_state.set(False)
 timestamp_ph = Checkbutton(tab3, text="True", var=chk_state)
-timestamp_ph.grid(column=1, row=7)
+timestamp_ph.grid(column=1, row=9)
 
 
 send_btn = Button(tab3, text="Send!", fg="green", command=send_click, width=16)
