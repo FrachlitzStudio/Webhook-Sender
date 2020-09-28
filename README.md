@@ -33,7 +33,7 @@ The program has three menus: Info, Webhook and Embed.
 - [x] Setting up a webhook inside the program.
 - [x] Menu for easy color selection.
 - [x] Save webhook data.
-- [х] Adding pictures.
+- [x] Adding pictures.
 - [ ] Writing simple text.
 - [ ] Attaching files.
 - [ ] Cool design.
