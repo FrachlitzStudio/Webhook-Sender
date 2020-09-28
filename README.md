@@ -1,4 +1,4 @@
-# Webhook Embed Sender with GUI
+# [GUI] Webhook Embed Sender v0.2.2
 Send Discord embed messages using Webhooks.
 
 ## Installation
