@@ -19,6 +19,13 @@ The program has two menus: webhook and embed.
 2. Customize your embed message in the second menu.
 3. Click the send button.
 
+## Screenshots
+<details> 
+  <summary>Open</summary>
+![webhook menu](https://i.imgur.com/tLBJi8p.png)
+![embed menu](https://i.imgur.com/N4f3zZ0.png)
+</details>
+
 ## Plans
 - [x] Basic embed sender.
 - [x] Setting up a webhook inside the program.
