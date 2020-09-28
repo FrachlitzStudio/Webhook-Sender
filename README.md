@@ -14,9 +14,9 @@ You can also use a ready-made .exe file:
 3. Open **embedgui.exe**.
 
 ## Usage
-The program has two menus: webhook and embed.
-1. Configure the webhook in the first menu.
-2. Customize your embed message in the second menu.
+The program has three menus: Info, Webhook and Embed.
+1. Configure the webhook in the second menu.
+2. Customize your embed message in the third menu.
 3. Click the send button.
 
 ## Screenshots
