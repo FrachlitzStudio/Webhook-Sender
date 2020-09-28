@@ -49,9 +49,6 @@ def choose_color():
 	color_ph.insert(0, choosen_color[1].lstrip('#'))
 	color_ph.configure(bg=choosen_color[1])
 
-def open_github(event):
-	webbrowser.open_new(r"https://github.com/FrachlitzStudio/GUI-Webhook-Embed-Sender")
-
 
 
 # Window
