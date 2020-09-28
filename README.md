@@ -28,7 +28,7 @@ The program has three menus: Info, Webhook and Embed.
 ![embed menu](https://i.imgur.com/N4f3zZ0.png)
 </details>
 
-## Plans
+## ToDo
 - [x] Basic embed sender.
 - [x] Setting up a webhook inside the program.
 - [x] Menu for easy color selection.
