@@ -23,6 +23,7 @@ The program has two menus: webhook and embed.
 <details> 
   <summary>Open</summary>
 ![webhook menu](https://i.imgur.com/tLBJi8p.png)
+
 ![embed menu](https://i.imgur.com/N4f3zZ0.png)
 </details>
 
