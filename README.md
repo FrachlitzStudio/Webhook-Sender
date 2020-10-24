@@ -1,8 +1,7 @@
 # [GUI] Webhook Embed Sender v0.4
 Send Discord embed messages using Webhooks.
 
-## Installation
-You can use the program with Python (requires Python 3):
+## Installation (requires Python 3)
 1. Download the lastest release [here](https://github.com/FrachlitzStudio/GUI-Webhook-Embed-Sender/releases).
 2. Unpack the archive in the desired location.
 3. Install the necessary modules.
