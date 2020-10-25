@@ -37,11 +37,14 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
             self.ui.send_title_ph.setText('')
             self.ui.send_author_ph.setText('')
             self.ui.send_author_icon_ph.setText('')
+            self.ui.send_author_url_ph.setText('')
             self.ui.send_image_ph.setText('')
             self.ui.send_thumbnail_ph.setText('')
             self.ui.send_footer_ph.setText('')
+            self.ui.send_footer_icon_ph.setText('')
             self.ui.send_color_ph.setText('')
             self.ui.send_desc_ph.setText('')
+            self.ui.send_timestamp_cb.setChecked(False)
 
         def btn_send_color():
             sel_col = QColorDialog.getColor()
@@ -53,9 +56,11 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
             embed_title = self.ui.send_title_ph.text()
             embed_author = self.ui.send_author_ph.text()
             embed_author_icon = self.ui.send_author_icon_ph.text()
+            embed_author_url = self.ui.send_author_url_ph.text()
             embed_image = self.ui.send_image_ph.text()
             embed_thumbnail = self.ui.send_thumbnail_ph.text()
             embed_footer = self.ui.send_footer_ph.text()
+            embed_footer_icon = self.ui.send_footer_icon_ph.text()
             embed_timestamp = self.ui.send_timestamp_cb.isChecked()
             embed_color = self.ui.send_color_ph.text()
             if embed_color != "":
@@ -69,10 +74,10 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
             try:
                 webhook = DiscordWebhook(url=wh_u, username=wh_n, avatar_url=wh_a)
                 embed = DiscordEmbed(title=embed_title, description=embed_desc, color=e_color)
-                embed.set_author(name=embed_author, icon_url=embed_author_icon)
+                embed.set_author(name=embed_author, url=embed_author_url, icon_url=embed_author_icon)
                 embed.set_image(url=embed_image)
                 embed.set_thumbnail(url=embed_thumbnail)
-                embed.set_footer(text=embed_footer)
+                embed.set_footer(text=embed_footer, icon_url=embed_footer_icon)
                 if embed_timestamp == True:
                     embed.set_timestamp()
                 webhook.add_embed(embed)
