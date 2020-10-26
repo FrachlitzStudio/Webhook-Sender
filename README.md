@@ -16,7 +16,7 @@ Send Discord embed messages using Webhooks.
 <details> 
   <summary>Open</summary>
 
-![screenshot](https://i.imgur.com/HrQd6tA.png
+![screenshot](https://i.imgur.com/HrQd6tA.png)
 </details>
 
 ## ToDo
