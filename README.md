@@ -1,4 +1,4 @@
-# Webhook Sender v0.4.1
+# Webhook Sender v0.4.2
 Send Discord embed messages using Webhooks.
 
 ## Installation (requires Python 3)
@@ -16,7 +16,7 @@ Send Discord embed messages using Webhooks.
 <details> 
   <summary>Open</summary>
 
-![webhook menu](https://i.imgur.com/ARvIlt9.png)
+![screenshot](https://i.imgur.com/HrQd6tA.png
 </details>
 
 ## ToDo
