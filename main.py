@@ -35,6 +35,7 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
 
         def btn_send_clear():
             self.ui.send_title_ph.setText('')
+            self.ui.send_url_ph.setText('')
             self.ui.send_author_ph.setText('')
             self.ui.send_author_icon_ph.setText('')
             self.ui.send_author_url_ph.setText('')
@@ -59,6 +60,7 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
         def btn_send():
             message_content = self.ui.send_content_ph.toPlainText()
             embed_title = self.ui.send_title_ph.text()
+            embed_url = self.ui.send_url_ph.text()
             embed_author = self.ui.send_author_ph.text()
             embed_author_icon = self.ui.send_author_icon_ph.text()
             embed_author_url = self.ui.send_author_url_ph.text()
@@ -78,14 +80,14 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
             wh_a = self.ui.wh_avatar_ph.text()
             try:
                 webhook = DiscordWebhook(url=wh_u, username=wh_n, avatar_url=wh_a, content=message_content)
-                embed = DiscordEmbed(title=embed_title, description=embed_desc, color=e_color)
+                embed = DiscordEmbed(title=embed_title, description=embed_desc, color=e_color, url=embed_url)
                 embed.set_author(name=embed_author, url=embed_author_url, icon_url=embed_author_icon)
                 embed.set_image(url=embed_image)
                 embed.set_thumbnail(url=embed_thumbnail)
                 embed.set_footer(text=embed_footer, icon_url=embed_footer_icon)
                 if embed_timestamp == True:
                     embed.set_timestamp()
-                if embed_title != "" or embed_author != ""or embed_author_icon != "" or embed_author_url != "" or embed_image != "" or embed_thumbnail != "" or embed_footer != "" or embed_footer_icon != "" or embed_timestamp == True or embed_color != "" or embed_desc != "":
+                if embed_title != "" or embed_url != "" or embed_author != "" or embed_author_icon != "" or embed_author_url != "" or embed_image != "" or embed_thumbnail != "" or embed_footer != "" or embed_footer_icon != "" or embed_timestamp == True or embed_color != "" or embed_desc != "":
                     webhook.add_embed(embed)
                 response = webhook.execute()
             except:
