@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(572, 509)
+        MainWindow.resize(572, 570)
         MainWindow.setStyleSheet("background-color: #2C2F33")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
 "")
         self.wh_clear.setObjectName("wh_clear")
         self.sender_group = QtWidgets.QGroupBox(self.centralwidget)
-        self.sender_group.setGeometry(QtCore.QRect(0, 140, 571, 351))
+        self.sender_group.setGeometry(QtCore.QRect(0, 140, 571, 411))
         self.sender_group.setStyleSheet("color: #8e9297;")
         self.sender_group.setObjectName("sender_group")
         self.send_title_text = QtWidgets.QLabel(self.sender_group)
@@ -174,7 +174,7 @@ class Ui_MainWindow(object):
 "")
         self.send_color_btn.setObjectName("send_color_btn")
         self.send_send = QtWidgets.QPushButton(self.sender_group)
-        self.send_send.setGeometry(QtCore.QRect(10, 320, 271, 23))
+        self.send_send.setGeometry(QtCore.QRect(10, 350, 271, 23))
         self.send_send.setStyleSheet("QPushButton {\n"
 "    background-color: #7f95e3;\n"
 "    color: rgb(255, 255, 255);\n"
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
 "")
         self.send_send.setObjectName("send_send")
         self.send_clear = QtWidgets.QPushButton(self.sender_group)
-        self.send_clear.setGeometry(QtCore.QRect(290, 320, 271, 23))
+        self.send_clear.setGeometry(QtCore.QRect(290, 350, 271, 23))
         self.send_clear.setStyleSheet("QPushButton {\n"
 "    background-color: #7f95e3;\n"
 "    color: rgb(255, 255, 255);\n"
@@ -249,6 +249,67 @@ class Ui_MainWindow(object):
         self.send_url_text.setGeometry(QtCore.QRect(10, 50, 47, 13))
         self.send_url_text.setStyleSheet("color: #8e9297;")
         self.send_url_text.setObjectName("send_url_text")
+        self.send_attachment_text = QtWidgets.QLabel(self.sender_group)
+        self.send_attachment_text.setGeometry(QtCore.QRect(10, 320, 61, 16))
+        self.send_attachment_text.setObjectName("send_attachment_text")
+        self.send_attachment_ph = QtWidgets.QLineEdit(self.sender_group)
+        self.send_attachment_ph.setGeometry(QtCore.QRect(100, 320, 331, 20))
+        self.send_attachment_ph.setStyleSheet("color: #dcddde;\n"
+"background-color: #40444b;")
+        self.send_attachment_ph.setReadOnly(True)
+        self.send_attachment_ph.setObjectName("send_attachment_ph")
+        self.send_attachment_btn = QtWidgets.QPushButton(self.sender_group)
+        self.send_attachment_btn.setGeometry(QtCore.QRect(440, 320, 81, 23))
+        self.send_attachment_btn.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.send_attachment_btn.setObjectName("send_attachment_btn")
+        self.send_edit = QtWidgets.QPushButton(self.sender_group)
+        self.send_edit.setGeometry(QtCore.QRect(10, 380, 271, 23))
+        self.send_edit.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.send_edit.setObjectName("send_edit")
+        self.send_delete = QtWidgets.QPushButton(self.sender_group)
+        self.send_delete.setGeometry(QtCore.QRect(290, 380, 271, 23))
+        self.send_delete.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.send_delete.setObjectName("send_delete")
+        self.send_attachment_clear_btn = QtWidgets.QPushButton(self.sender_group)
+        self.send_attachment_clear_btn.setGeometry(QtCore.QRect(530, 320, 31, 23))
+        self.send_attachment_clear_btn.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.send_attachment_clear_btn.setObjectName("send_attachment_clear_btn")
         self.info_group = QtWidgets.QGroupBox(self.centralwidget)
         self.info_group.setGeometry(QtCore.QRect(0, 0, 271, 141))
         self.info_group.setStyleSheet("color: #8e9297;")
@@ -296,15 +357,20 @@ class Ui_MainWindow(object):
         self.send_desc_text.setText(_translate("MainWindow", "Description:"))
         self.send_color_text.setText(_translate("MainWindow", "Color:"))
         self.send_color_btn.setText(_translate("MainWindow", "Pick"))
-        self.send_send.setText(_translate("MainWindow", "Send"))
-        self.send_clear.setText(_translate("MainWindow", "Clear"))
+        self.send_send.setText(_translate("MainWindow", "Send message"))
+        self.send_clear.setText(_translate("MainWindow", "Clear fields"))
         self.send_footer_icon_text.setText(_translate("MainWindow", "Footer Icon URL:"))
         self.send_author_url_text.setText(_translate("MainWindow", "Author URL:"))
         self.send_content_text.setToolTip(_translate("MainWindow", "<html><head/><body><p>Simple message content.</p></body></html>"))
         self.send_content_text.setText(_translate("MainWindow", "Content:"))
         self.send_color_clear_btn.setText(_translate("MainWindow", "X"))
         self.send_url_text.setText(_translate("MainWindow", "URL:"))
+        self.send_attachment_text.setText(_translate("MainWindow", "Attachment:"))
+        self.send_attachment_btn.setText(_translate("MainWindow", "Select"))
+        self.send_edit.setText(_translate("MainWindow", "Edit message"))
+        self.send_delete.setText(_translate("MainWindow", "Delete message"))
+        self.send_attachment_clear_btn.setText(_translate("MainWindow", "X"))
         self.info_group.setTitle(_translate("MainWindow", "Info"))
         self.info_title.setText(_translate("MainWindow", "Webhook Sender"))
-        self.info_version.setText(_translate("MainWindow", "v0.4.3"))
+        self.info_version.setText(_translate("MainWindow", "v0.5"))
         self.info_author.setText(_translate("MainWindow", "Made by FrachlitzStudio"))
