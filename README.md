@@ -8,15 +8,20 @@ Send Discord embed messages using Webhooks.
 4. Open **main.py**.
 
 ## Usage
+Sending:
 1. Configure the webhook.
-2. Customize your embed message.
-3. Click the send button.
+2. Customize your message.
+3. Click the "Send message" button.
+
+Editing:
+1. Edit your message.
+2. Click the "Edit message" button.
 
 ## Screenshots
 <details> 
   <summary>Open</summary>
 
-![screenshot](https://i.imgur.com/HleGT7A.png)
+![screenshot](https://i.imgur.com/apU54WK.png)
 </details>
 
 ## ToDo
@@ -24,4 +29,4 @@ Send Discord embed messages using Webhooks.
 - [x] Setting up a webhook inside the program.
 - [x] Saving the webhook data.
 - [x] Cool design.
-- [ ] Attaching files.
+- [x] Attaching files.
