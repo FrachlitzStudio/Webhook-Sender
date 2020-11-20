@@ -328,6 +328,32 @@ class Ui_MainWindow(object):
         self.info_author.setGeometry(QtCore.QRect(10, 50, 121, 16))
         self.info_author.setStyleSheet("color: #b0b0b0;")
         self.info_author.setObjectName("info_author")
+        self.info_import_btn = QtWidgets.QPushButton(self.info_group)
+        self.info_import_btn.setGeometry(QtCore.QRect(10, 80, 251, 23))
+        self.info_import_btn.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.info_import_btn.setObjectName("info_import_btn")
+        self.info_export_btn = QtWidgets.QPushButton(self.info_group)
+        self.info_export_btn.setGeometry(QtCore.QRect(10, 110, 251, 23))
+        self.info_export_btn.setStyleSheet("QPushButton {\n"
+"    background-color: #7f95e3;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #7289DA;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.info_export_btn.setObjectName("info_export_btn")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -357,8 +383,8 @@ class Ui_MainWindow(object):
         self.send_desc_text.setText(_translate("MainWindow", "Description:"))
         self.send_color_text.setText(_translate("MainWindow", "Color:"))
         self.send_color_btn.setText(_translate("MainWindow", "Pick"))
-        self.send_send.setText(_translate("MainWindow", "Send message"))
-        self.send_clear.setText(_translate("MainWindow", "Clear fields"))
+        self.send_send.setText(_translate("MainWindow", "Send Message"))
+        self.send_clear.setText(_translate("MainWindow", "Clear Fields"))
         self.send_footer_icon_text.setText(_translate("MainWindow", "Footer Icon URL:"))
         self.send_author_url_text.setText(_translate("MainWindow", "Author URL:"))
         self.send_content_text.setToolTip(_translate("MainWindow", "<html><head/><body><p>Simple message content.</p></body></html>"))
@@ -367,10 +393,12 @@ class Ui_MainWindow(object):
         self.send_url_text.setText(_translate("MainWindow", "URL:"))
         self.send_attachment_text.setText(_translate("MainWindow", "Attachment:"))
         self.send_attachment_btn.setText(_translate("MainWindow", "Select"))
-        self.send_edit.setText(_translate("MainWindow", "Edit message"))
-        self.send_delete.setText(_translate("MainWindow", "Delete message"))
+        self.send_edit.setText(_translate("MainWindow", "Edit Message"))
+        self.send_delete.setText(_translate("MainWindow", "Delete Message"))
         self.send_attachment_clear_btn.setText(_translate("MainWindow", "X"))
         self.info_group.setTitle(_translate("MainWindow", "Info"))
         self.info_title.setText(_translate("MainWindow", "Webhook Sender"))
-        self.info_version.setText(_translate("MainWindow", "v0.5"))
+        self.info_version.setText(_translate("MainWindow", "v0.5.1"))
         self.info_author.setText(_translate("MainWindow", "Made by FrachlitzStudio"))
+        self.info_import_btn.setText(_translate("MainWindow", "Import Template"))
+        self.info_export_btn.setText(_translate("MainWindow", "Export Template"))

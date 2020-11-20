@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 from PyQt5.QtWidgets import QColorDialog, QMessageBox, QFileDialog
 from PyQt5.QtCore import QUrl
 from design import Ui_MainWindow
-import sys
+import sys, pickle
 from discord_webhook import DiscordWebhook, DiscordEmbed
 from configparser import ConfigParser
 
@@ -110,11 +110,58 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
             webhook.delete(sent_webhook)
 
         def btn_attachment():
-            attachment_file, _ = QFileDialog.getOpenFileName(self, "Select file", "~", "All Files (*.*)")
+            attachment_file, _ = QFileDialog.getOpenFileName(self, "Select file", "", "All Files (*.*)")
             self.ui.send_attachment_ph.setText(attachment_file)
 
             global attachment_file_name
             attachment_file_name = QUrl.fromLocalFile(attachment_file).fileName()
+
+        def btn_import():
+            import_file, _ = QFileDialog.getOpenFileName(self, "Select file", "", "Text Files (*.txt)")
+
+            if import_file != '':
+                with open(import_file, 'rb') as f:
+                    message_content, message_file, embed_title, embed_url, embed_author, embed_author_icon, embed_author_url, embed_image, embed_thumbnail, embed_footer, embed_footer_icon, embed_timestamp, embed_color, embed_desc = pickle.load(f)
+
+                self.ui.send_content_ph.setText(message_content)
+                self.ui.send_attachment_ph.setText(message_file)
+                self.ui.send_title_ph.setText(embed_title)
+                self.ui.send_url_ph.setText(embed_url)
+                self.ui.send_author_ph.setText(embed_author)
+                self.ui.send_author_icon_ph.setText(embed_author_icon)
+                self.ui.send_author_url_ph.setText(embed_author_url)
+                self.ui.send_image_ph.setText(embed_image)
+                self.ui.send_thumbnail_ph.setText(embed_thumbnail)
+                self.ui.send_footer_ph.setText(embed_footer)
+                self.ui.send_footer_icon_ph.setText(embed_footer_icon)
+                if embed_timestamp == True:
+                    self.ui.send_timestamp_cb.setChecked(True)
+                elif embed_timestamp == False:
+                    self.ui.send_timestamp_cb.setChecked(False)
+                self.ui.send_color_ph.setText(embed_color)
+                self.ui.send_desc_ph.setText(embed_desc)
+
+        def btn_export():
+            message_content = self.ui.send_content_ph.toPlainText()
+            message_file = self.ui.send_attachment_ph.text()
+            embed_title = self.ui.send_title_ph.text()
+            embed_url = self.ui.send_url_ph.text()
+            embed_author = self.ui.send_author_ph.text()
+            embed_author_icon = self.ui.send_author_icon_ph.text()
+            embed_author_url = self.ui.send_author_url_ph.text()
+            embed_image = self.ui.send_image_ph.text()
+            embed_thumbnail = self.ui.send_thumbnail_ph.text()
+            embed_footer = self.ui.send_footer_ph.text()
+            embed_footer_icon = self.ui.send_footer_icon_ph.text()
+            embed_timestamp = self.ui.send_timestamp_cb.isChecked()
+            embed_color = self.ui.send_color_ph.text()
+            embed_desc = self.ui.send_desc_ph.toPlainText()
+
+            export_file, _ = QFileDialog.getSaveFileName(self, "Save file", "template.txt", "All Files (*.*)")
+
+            if export_file != '':
+                with open(export_file, 'wb') as f:
+                    pickle.dump((message_content, message_file, embed_title, embed_url, embed_author, embed_author_icon, embed_author_url, embed_image, embed_thumbnail, embed_footer, embed_footer_icon, embed_timestamp, embed_color, embed_desc), f)
 
         def btn_send():
             message_content = self.ui.send_content_ph.toPlainText()
@@ -176,6 +223,8 @@ class WebhookSenderApp(QtWidgets.QMainWindow):
         self.ui.send_delete.clicked.connect(btn_delete)
         self.ui.send_attachment_btn.clicked.connect(btn_attachment)
         self.ui.send_attachment_clear_btn.clicked.connect(btn_attachment_clear)
+        self.ui.info_export_btn.clicked.connect(btn_export)
+        self.ui.info_import_btn.clicked.connect(btn_import)
 
 
 app = QtWidgets.QApplication([])
