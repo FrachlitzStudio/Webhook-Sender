@@ -21,7 +21,7 @@ Editing:
 <details> 
   <summary>Open</summary>
 
-![screenshot](https://i.imgur.com/apU54WK.png)
+![screenshot](https://i.imgur.com/lWYnnjq.png)
 </details>
 
 ## ToDo
